@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Planner Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="app">
+        <header class="app-shell">
+            <div class="titlebar">
+                <div class="window-controls">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="app-title">
+                    <span class="brand-icon">📚</span>
+                    <h1>Study Planner</h1>
+                </div>
+            </div>
+
+            <div class="toolbar">
+                <div class="toolbar-left">
+                    <button onclick="toggleDarkMode()">🌙</button>
+                    <button onclick="exportTasks()">Export</button>
+                </div>
+                <div class="toolbar-right">
+                    <div class="search-box">
+                        <input type="text" id="search" placeholder="Search tasks or subjects..." onkeyup="searchTasks()">
+                    </div>
+                    <div class="filter-group">
+                        <button onclick="filterTasks('all')">All</button>
+                        <button onclick="filterTasks('completed')">Done</button>
+                        <button onclick="filterTasks('pending')">Pending</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="dashboard-grid">
+            <section class="column column-left">
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <span>Total</span>
+                        <strong id="total">0</strong>
+                    </div>
+                    <div class="stat-card">
+                        <span>Done</span>
+                        <strong id="done">0</strong>
+                    </div>
+                    <div class="stat-card">
+                        <span>Pending</span>
+                        <strong id="pending">0</strong>
+                    </div>
+                </div>
+
+                <div class="card card-form">
+                    <div class="card-header">
+                        <h3>New Task</h3>
+                        <span>Add a study item quickly</span>
+                    </div>
+                    <div class="form-grid">
+                        <input type="text" id="taskInput" placeholder="Task description">
+                        <input type="text" id="subject" placeholder="Subject (OS, DB)">
+                        <input type="date" id="date">
+                        <select id="priority">
+                            <option>Low</option>
+                            <option>Medium</option>
+                            <option>High</option>
+                        </select>
+                    </div>
+                    <button class="primary-btn" onclick="addTask()">Add Task</button>
+                </div>
+
+                <div class="widget-grid">
+                    <div class="card card-widget">
+                        <div class="card-header">
+                            <h3>Focus Session</h3>
+                            <span>Pomodoro timer</span>
+                        </div>
+                        <div class="pomodoro-inner">
+                            <h4 id="mode">Focus Mode</h4>
+                            <div class="timer" id="timer">25:00</div>
+                            <input type="number" id="minutesInput" min="1" value="25">
+                            <div class="pomodoro-actions">
+                                <button onclick="setTime()">Set</button>
+                                <button onclick="startPomodoro()">Start</button>
+                                <button onclick="pauseTimer()">Pause</button>
+                                <button onclick="resetPomodoro()">Reset</button>
+                            </div>
+                            <p>Sessions completed: <strong id="count">0</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="card card-widget calendar-card">
+                        <div class="card-header">
+                            <h3>Calendar</h3>
+                            <span>Pick a study day</span>
+                        </div>
+                        <div class="calendar-header">
+                            <button onclick="prevMonth()">←</button>
+                            <h4 id="monthLabel"></h4>
+                            <button onclick="nextMonth()">→</button>
+                        </div>
+                        <div id="calendar" class="calendar-grid"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="column column-right">
+                <div class="card chart-card">
+                    <div class="card-header">
+                        <h3>Progress Overview</h3>
+                        <span>Completed vs pending tasks</span>
+                    </div>
+                    <canvas id="progressChart"></canvas>
+                </div>
+
+                <div class="card analytics-card">
+                    <div class="card-header">
+                        <h3>Analytics</h3>
+                        <span>Study performance at a glance</span>
+                    </div>
+                    <div class="analytics-list">
+                        <div><span>Total Tasks</span><strong id="a_total">0</strong></div>
+                        <div><span>Completed</span><strong id="a_done">0</strong></div>
+                        <div><span>Pending</span><strong id="a_pending">0</strong></div>
+                        <div><span>Completion Rate</span><strong id="a_rate">0%</strong></div>
+                    </div>
+                </div>
+
+                <div class="card tasks-card">
+                    <div class="card-header">
+                        <h3>Task Board</h3>
+                        <span>Drag tasks to reorder and manage status</span>
+                    </div>
+                    <ul id="taskList" class="task-list"></ul>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer-bar">
+            <p>Made for focused study flow. Your tasks stay saved locally in your browser.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

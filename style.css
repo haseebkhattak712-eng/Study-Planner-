@@ -1,0 +1,319 @@
+/* ======================
+   GLOBAL RESET
+====================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    background: radial-gradient(circle at top, #141a33, #070a14);
+    color: #eaf0ff;
+    line-height: 1.5;
+}
+
+/* ======================
+   APP WRAPPER
+====================== */
+.app {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    gap: 18px;
+}
+
+/* ======================
+   HEADER BAR
+====================== */
+.app-shell {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(16px);
+    border-radius: 18px;
+    padding: 16px 20px;
+}
+
+/* TITLE */
+.titlebar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.app-title h1 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* ======================
+   TOOLBAR
+====================== */
+.toolbar {
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.toolbar-left,
+.toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* BUTTONS (CLEAN UI) */
+button {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: white;
+    padding: 10px 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.2s ease;
+    font-size: 13px;
+}
+
+button:hover {
+    background: rgba(124,90,254,0.25);
+    transform: translateY(-1px);
+}
+
+/* SEARCH */
+.search-box input {
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.05);
+    color: white;
+    min-width: 260px;
+    outline: none;
+}
+
+/* ======================
+   DASHBOARD GRID
+====================== */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 20px;
+}
+
+/* ======================
+   LEFT + RIGHT COLUMN
+====================== */
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* ======================
+   STATS
+====================== */
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.stat-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 16px;
+    border-radius: 14px;
+    text-align: center;
+}
+
+.stat-card strong {
+    font-size: 22px;
+    display: block;
+    margin-top: 5px;
+}
+
+/* ======================
+   CARDS
+====================== */
+.card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+    padding: 18px;
+}
+
+/* CARD HEADER */
+.card-header h3 {
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.card-header span {
+    font-size: 12px;
+    color: #aab3d6;
+}
+
+/* ======================
+   TASK FORM
+====================== */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+input, select {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.05);
+    color: white;
+}
+
+/* PRIMARY BUTTON */
+.primary-btn {
+    width: 100%;
+    margin-top: 12px;
+    background: linear-gradient(135deg, #6c5ce7, #8e7dff);
+    border: none;
+    font-weight: 600;
+}
+
+/* ======================
+   POMODORO (SMALL CLEAN CARD)
+====================== */
+.pomodoro-inner {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.timer {
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.pomodoro-actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+/* ======================
+   CALENDAR (SMALL + CLEAN)
+====================== */
+.calendar-card {
+    padding: 16px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+}
+
+.calendar-grid div {
+    padding: 8px;
+    text-align: center;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.04);
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.calendar-grid div:hover {
+    background: rgba(108,92,231,0.3);
+}
+
+/* ======================
+   RIGHT SIDE CARDS BIGGER
+====================== */
+.chart-card canvas {
+    height: 260px !important;
+}
+
+.analytics-list div {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+    margin-top: 8px;
+}
+
+/* ======================
+   TASKS
+====================== */
+.task-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.task-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: 0.2s;
+}
+
+.task-list li:hover {
+    transform: translateY(-2px);
+}
+
+.task-info b {
+    font-size: 14px;
+}
+
+/* ======================
+   BADGES
+====================== */
+.badge {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 999px;
+}
+
+.priority-High { color: #ff6b6b; }
+.priority-Medium { color: #ffb84d; }
+.priority-Low { color: #7CFC00; }
+
+/* ======================
+   RESPONSIVE
+====================== */
+@media (max-width: 900px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-row {
+        grid-template-columns: 1fr;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
